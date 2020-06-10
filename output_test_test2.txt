@@ -1,0 +1,23 @@
+==test.txt==
+Char count: 1031
+Word count: 268
+Dict size: 141
+Most used words (>1%): [a,and,as,been,but,figure,had,i,in,is,it,me,music,no,not,of,old,the,to,was,where]
+'love' count: 1
+'hate' count: 0
+'music' count: 3
+vowels %: 38
+'a:e count ratio' : 1.43
+[ T -> 9.31] [ H -> 5.63] [ I -> 6.79] [ S -> 6.11] [ A -> 7.95] [ E -> 13.87] [ F -> 2.04] [ L -> 2.91] [ O -> 7.37] [ W -> 3.78] [ V -> 1.07] [ R -> 5.53] [ Y -> 1.26] [ U -> 3.01] [ M -> 2.62] [ G -> 2.23] [ N -> 7.95] [ D -> 5.14] [ X -> 0.10] [ P -> 0.97] [ C -> 1.94] [ B -> 1.65] [ K -> 0.58] [ Q -> 0.10] [ J -> 0.10]
+==test2.txt==
+Char count: 939
+Word count: 235
+Dict size: 151
+Most used words (>1%): [all,and,death,from,ho,i,last,me,my,of,oh,the,thee,thou,to,ye,you]
+'love' count: 0
+'hate' count: 2
+'music' count: 1
+vowels %: 37
+'a:e count ratio' : 1.28
+[ T -> 8.84] [ H -> 6.71] [ A -> 6.18] [ I -> 5.75] [ S -> 6.18] [ N -> 6.28] [ O -> 9.58] [ E -> 12.03] [ R -> 4.79] [ X -> 0.11] [ F -> 2.34] [ P -> 2.45] [ U -> 3.62] [ L -> 5.64] [ D -> 4.37] [ Y -> 2.98] [ C -> 2.24] [ W -> 1.92] [ B -> 1.60] [ K -> 1.06] [ M -> 3.51] [ G -> 1.60] [ Q -> 0.11] [ V -> 0.11]
+Benchmark time: 0.076 secs
