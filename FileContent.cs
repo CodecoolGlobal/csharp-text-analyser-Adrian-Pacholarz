@@ -25,7 +25,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         public Iterator WordIterator()
         {
-            throw new System.NotImplementedException();
+            return new WordIterator(this);
         }
 
         public string GetFileName()

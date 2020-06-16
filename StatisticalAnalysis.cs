@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace csharp_text_analyser_Adrian_Pacholarz
 {
@@ -11,21 +12,20 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         }
 
-        public int CharCount()
-        {
-            int CharCount = 0;
-            while(_iterator.HasNext())
-            {
-                _iterator.MoveNext();
-                CharCount += 1;
-            }
-
-            return CharCount;
-        }
-
         public int CountOf(params string[] elems)
         {
-            throw new System.NotImplementedException();
+            int elemCount = 0;
+            while(_iterator.HasNext())
+            {
+                string elem = _iterator.MoveNext();
+                if (elems[0] == elem)
+                {
+                    elemCount += 1;
+                }
+                    
+            }
+
+            return elemCount;
         }
 
         public int DictionarySize()
@@ -35,7 +35,14 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         public int Size()
         {
-            throw new System.NotImplementedException();
+            int elemCount = 0;
+            while(_iterator.HasNext())
+            {
+                _iterator.MoveNext();
+                elemCount += 1;
+            }
+
+            return elemCount;
         }
 
         public ISet<string> OccurMoreThan(int number)
