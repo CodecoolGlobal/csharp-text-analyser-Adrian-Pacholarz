@@ -46,5 +46,10 @@ namespace csharp_text_analyser_Adrian_Pacholarz
             return word;
         }
 
+        public void Reset()
+        {
+            this._position = -1;
+        }
+
     }
 }

@@ -25,6 +25,8 @@ namespace csharp_text_analyser_Adrian_Pacholarz
                     
             }
 
+            _iterator.Reset();
+
             return elemCount;
         }
 
@@ -41,6 +43,8 @@ namespace csharp_text_analyser_Adrian_Pacholarz
                 _iterator.MoveNext();
                 elemCount += 1;
             }
+
+            _iterator.Reset();
 
             return elemCount;
         }

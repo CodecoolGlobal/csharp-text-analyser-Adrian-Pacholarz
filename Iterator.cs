@@ -6,5 +6,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         string MoveNext();
 
+        void Reset();
+
     }
 }
