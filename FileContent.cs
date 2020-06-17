@@ -30,7 +30,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         public string GetFileName()
         {
-            throw new System.NotImplementedException();
+            return Path.GetFileName(_file);
         }
 
         public int CountCharaters()

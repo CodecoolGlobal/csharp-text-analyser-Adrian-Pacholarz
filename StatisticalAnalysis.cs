@@ -15,17 +15,20 @@ namespace csharp_text_analyser_Adrian_Pacholarz
         public int CountOf(params string[] elems)
         {
             int elemCount = 0;
-            while(_iterator.HasNext())
-            {
-                string elem = _iterator.MoveNext();
-                if (elems[0] == elem)
-                {
-                    elemCount += 1;
-                }
-                    
-            }
 
-            _iterator.Reset();
+            foreach (string word in elems)
+            {
+                while(_iterator.HasNext())
+                {
+                    string elem = _iterator.MoveNext();
+                    if (word == elem)
+                    {
+                        elemCount += 1;
+                    }                        
+                }
+                _iterator.Reset();
+                
+            }
 
             return elemCount;
         }
