@@ -35,7 +35,21 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         public int DictionarySize()
         {
-            throw new System.NotImplementedException();
+            var dictionaryWords = new List<string>();
+
+            while(_iterator.HasNext())
+            {
+                string elem =_iterator.MoveNext();
+                if(!dictionaryWords.Contains(elem))
+                {
+                    dictionaryWords.Add(elem);
+                }
+            }
+
+            _iterator.Reset();
+
+            return dictionaryWords.Count;
+
         }
 
         public int Size()

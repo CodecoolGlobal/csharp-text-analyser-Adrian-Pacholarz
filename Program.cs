@@ -14,6 +14,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
                 StatisticalAnalysis wordAnalysis = new StatisticalAnalysis(fileContent.WordIterator());
                 Console.WriteLine($"Number of characters: {charAnalysis.Size()}");
                 Console.WriteLine($"Number of words: {wordAnalysis.Size()}");
+                Console.WriteLine($"Dictionary size is: {wordAnalysis.DictionarySize()}");
                 Console.WriteLine($"Count of word 'music': {wordAnalysis.CountOf("music")}");
                 
             }
