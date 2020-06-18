@@ -6,7 +6,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
     {
         static void Main(string[] args)
         {
-            
+            var start = DateTime.Now;
             foreach(string arg in args)
             {
                 FileContent fileContent = new FileContent(arg);
@@ -19,16 +19,16 @@ namespace csharp_text_analyser_Adrian_Pacholarz
                     Console.WriteLine($"Number of words: {wordAnalysis.Size()}");
                     Console.WriteLine($"Dictionary size is: {wordAnalysis.DictionarySize()}");
                     Console.WriteLine($"Count of word 'music': {wordAnalysis.CountOf("music")}");
-                    var occurance = wordAnalysis.OccurMoreThan(2);
-                    foreach(string word in occurance)
-                    {
-                        Console.WriteLine(word);
-                    }
+                    //var occurance = wordAnalysis.OccurMoreThan(5);
+                    //foreach(string word in occurance)
+                    //{
+                    //    Console.WriteLine(word);
+                    //}
                 }
-                
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("\n");
             }
+
+            Console.WriteLine($"Benchmark: {DateTime.Now - start}");
 
         }
     }
