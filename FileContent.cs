@@ -6,6 +6,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
     public class FileContent : IterableText
     {
         private string _file;
+        private string _fileName;
         public string this[int itemIndex]
         {
             get
@@ -15,7 +16,15 @@ namespace csharp_text_analyser_Adrian_Pacholarz
         }
         public FileContent(string file)
         {
-            this._file = File.ReadAllText(file);
+            this._fileName = file;
+            try
+            {
+            this._file = File.ReadAllText(_fileName);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine($"{_fileName} not found");
+            }
 
         }
         public Iterator CharIterator()
@@ -30,12 +39,21 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         public string GetFileName()
         {
-            return Path.GetFileName(_file);
+            return Path.GetFileName(_fileName);
         }
 
         public int CountCharaters()
         {
             return _file.Length;
+        }
+
+        public bool IsFileLoaded()
+        {
+            if(_file is null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
