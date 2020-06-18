@@ -68,7 +68,33 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 
         public ISet<string> OccurMoreThan(int number)
         {
-            throw new System.NotImplementedException();
+            var occuranceElems = new SortedSet<string>();
+            var dictionaryOfElems = new Dictionary<string, int>();
+
+            while(_iterator.HasNext())
+            {
+                string elem =_iterator.MoveNext();
+                if (dictionaryOfElems.ContainsKey(elem))
+                {
+                    dictionaryOfElems[elem] += 1;
+                }
+                else
+                {
+                    dictionaryOfElems.Add(elem, 1);
+                }
+            }
+
+            _iterator.Reset();
+
+            foreach (string key in dictionaryOfElems.Keys)
+            {
+                if(dictionaryOfElems[key] > number)
+                {
+                    occuranceElems.Add(key);
+                }
+            }
+
+            return occuranceElems;
         }
 
     }

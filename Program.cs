@@ -16,6 +16,11 @@ namespace csharp_text_analyser_Adrian_Pacholarz
                 Console.WriteLine($"Number of words: {wordAnalysis.Size()}");
                 Console.WriteLine($"Dictionary size is: {wordAnalysis.DictionarySize()}");
                 Console.WriteLine($"Count of word 'music': {wordAnalysis.CountOf("music")}");
+                var occurance = wordAnalysis.OccurMoreThan(2);
+                foreach(string word in occurance)
+                {
+                    Console.WriteLine(word);
+                }
                 
             }
 
