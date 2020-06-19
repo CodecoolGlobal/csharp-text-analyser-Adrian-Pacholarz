@@ -6,10 +6,12 @@ namespace csharp_text_analyser_Adrian_Pacholarz
     class StatisticalAnalysis
     {
         private Iterator _iterator;
+
+        public View View = new View();
+
         public StatisticalAnalysis(Iterator iterator)
         {
             this._iterator = iterator;
-
         }
 
         public int CountOf(params string[] elems)
@@ -97,5 +99,93 @@ namespace csharp_text_analyser_Adrian_Pacholarz
             return occuranceElems;
         }
 
+        public Dictionary<string, double> ElementOccurance()
+        {
+            var elementCount = new Dictionary<string, double>();
+
+            while(_iterator.HasNext())
+            {
+                string elem =_iterator.MoveNext();
+                if (elementCount.ContainsKey(elem))
+                {
+                    elementCount[elem] += 1;
+                }
+                else
+                {
+                    elementCount.Add(elem, 1);
+                }
+            }
+
+            _iterator.Reset();
+
+            var allElements = this.Size();
+            
+            foreach (string key in new List<string>(elementCount.Keys))
+            {
+                elementCount[key] = (elementCount[key] / allElements) * 100;
+            }
+
+            return elementCount;            
+
+        }
+
+        public List<string> MostUsedElements()
+        {
+            var mostUsedElements = new List<string>();
+            var elementsOccurance = this.ElementOccurance();
+
+            foreach (string key in elementsOccurance.Keys)
+            {
+                if (elementsOccurance[key] > 1)
+                {
+                    mostUsedElements.Add(key);
+                }
+            }
+
+            return mostUsedElements;
+        }
+
+        public int VowelsPercentage()
+        {
+            List<string> vowels = new List<string>{"a", "o", "i", "e", "u"};
+            int vowelsCount = 0;
+
+            while(_iterator.HasNext())
+            {
+                string elem = _iterator.MoveNext();
+                if (vowels.Contains(elem))
+                {
+                    vowelsCount += 1;
+                }
+
+            }
+            _iterator.Reset();
+
+            var allElements = this.Size();
+
+            return (vowelsCount * 100) / allElements;
+
+        }
+
+        public double Ratio(string x, string y)
+        {
+            var elementCount = new Dictionary<string, double>{{x.ToLower(), 0}, {y.ToLower(), 0}};
+
+            while(_iterator.HasNext())
+            {
+                string elem = _iterator.MoveNext();
+                if (elem == x || elem == y)
+                {
+                    elementCount[elem] += 1;
+                }
+
+            }
+            _iterator.Reset();
+
+            return (elementCount[x] / elementCount[y]);
+
+        }
+
     }
+    
 }
