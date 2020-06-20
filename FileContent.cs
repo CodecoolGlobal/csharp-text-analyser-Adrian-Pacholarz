@@ -19,11 +19,11 @@ namespace csharp_text_analyser_Adrian_Pacholarz
             this._fileName = file;
             try
             {
-            this._file = File.ReadAllText(_fileName).ToLower().ToCharArray();
+            this._file = File.ReadAllText(_fileName).ToLower().TrimEnd().ToCharArray();
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine($"{_fileName} not found");
+                Console.WriteLine($"{_fileName} not found, provide a valid file name");
             }
 
         }
