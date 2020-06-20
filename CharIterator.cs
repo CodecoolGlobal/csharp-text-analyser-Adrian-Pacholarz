@@ -10,8 +10,6 @@ namespace csharp_text_analyser_Adrian_Pacholarz
         private FileContent _fileContent;
         private int _position;
 
-        public static List<string> AlphaLetters = new List<string> {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-
         public CharIterator(FileContent fileContent)
         {
             this._fileContent = fileContent;
@@ -33,9 +31,9 @@ namespace csharp_text_analyser_Adrian_Pacholarz
             {
             _position += 1;
             }
-            while(!AlphaLetters.Contains(_fileContent[_position]) && HasNext());
+            while(!char.IsLetter(_fileContent[_position]) && HasNext());
 
-            return _fileContent[_position];
+            return _fileContent[_position].ToString();
         }
 
         public void Reset()

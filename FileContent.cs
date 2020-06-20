@@ -5,13 +5,13 @@ namespace csharp_text_analyser_Adrian_Pacholarz
 {
     public class FileContent : IterableText
     {
-        private string _file;
+        private char[] _file;
         private string _fileName;
-        public string this[int itemIndex]
+        public char this[int itemIndex]
         {
             get
             {
-                return _file.ToLower()[itemIndex].ToString();
+                return _file[itemIndex];
             }
         }
         public FileContent(string file)
@@ -19,7 +19,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
             this._fileName = file;
             try
             {
-            this._file = File.ReadAllText(_fileName);
+            this._file = File.ReadAllText(_fileName).ToLower().ToCharArray();
             }
             catch (FileNotFoundException)
             {

@@ -26,12 +26,12 @@ namespace csharp_text_analyser_Adrian_Pacholarz
             {
                 _position += 1;
             }
-            while(!CharIterator.AlphaLetters.Contains(_fileContent[_position]) && HasNext());
+            while(!char.IsLetter(_fileContent[_position]) && HasNext());
             
             string word = "";
 
 
-            while(CharIterator.AlphaLetters.Contains(_fileContent[_position]))
+            while(char.IsLetter(_fileContent[_position]))
             {
                 word += _fileContent[_position];
                 if (HasNext())
