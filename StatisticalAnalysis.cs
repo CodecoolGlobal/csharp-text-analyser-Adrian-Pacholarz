@@ -142,6 +142,7 @@ namespace csharp_text_analyser_Adrian_Pacholarz
                 }
             }
 
+            mostUsedElements.Sort();
             return mostUsedElements;
         }
 
